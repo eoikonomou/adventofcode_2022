@@ -1,5 +1,4 @@
-const fs = require('fs');
-const path = require('path');
+const { parseData } = require('../utils');
 
 const SHAPES = {
     X: 'rock',
@@ -46,10 +45,6 @@ const OUTCOME_SCORE = {
     LOSE: 0
 };
 
-function parseData() {
-    return fs.readFileSync(path.join(__dirname, 'input.txt'), 'utf-8');
-}
-
 function calculateOutcome(moves) {
     if (!moves) {
         return 0;
@@ -80,7 +75,7 @@ function calculateOutcome(moves) {
 
 function start1() {
     console.log(
-        parseData()
+        parseData('day2')
             .split('\n')
             .reduce((score, round) => score + calculateOutcome(round), 0)
     );

@@ -1,8 +1,7 @@
-const fs = require('fs');
-const path = require('path');
+const { parseData } = require('../utils');
 
-function parseData() {
-    const data = fs.readFileSync(path.join(__dirname, 'input.txt'), 'utf-8');
+function computeData() {
+    const data = parseData('day1');
     const dataArray = data.split('\n');
     let index = 0;
     const computedArray = dataArray.reduce((result, currentValue) => {
